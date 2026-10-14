@@ -36,6 +36,44 @@ unsigned char* SSHA(const unsigned char* msg, size_t length) {
     return digest;
 }
 
+void SSHA2(const unsigned char* data, size_t len, unsigned char digest[SSHA2_DIGEST_LEN])
+{
+    unsigned char A = 56, B = 99, C = 102, D = 67, E = 76;
+    size_t i;
+
+    if (digest == NULL) {
+        return;
+    }
+    if (data == NULL) {
+        len = 0;
+    }
+
+    for (i = 0; i < len; i++) {
+        /* Intermediate values, all computed from the OLD state */
+        unsigned char a_shr2 = (unsigned char)(A >> 2);
+        unsigned char b_shr1 = (unsigned char)(B >> 1);
+        unsigned char choose = (unsigned char)((B & C) | (C & D));
+
+        unsigned char newA = E;
+        unsigned char newB = A;
+        unsigned char newC = (unsigned char)(a_shr2 + E);
+        unsigned char newD = (unsigned char)(a_shr2 ^ b_shr1);
+        unsigned char newE = (unsigned char)(b_shr1 + choose + data[i]);
+
+        A = newA;
+        B = newB;
+        C = newC;
+        D = newD;
+        E = newE;
+    }
+
+    digest[0] = A;
+    digest[1] = B;
+    digest[2] = C;
+    digest[3] = D;
+    digest[4] = E;
+}
+
 int digest_equal(struct Digest digest1, struct Digest digest2) {
     return ((digest1.hash0 == digest2.hash0) &&
         (digest1.hash1 == digest2.hash1) &&

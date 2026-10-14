@@ -63,7 +63,8 @@ void printUser(struct User* user) {
 
 
 void generateDigest(struct Digest* digest, struct User* User) {
-    unsigned char* result = SSHA((unsigned char*)User, STRUCT_SIZE);
+    unsigned char result[SSHA2_DIGEST_LEN];
+    SSHA2((unsigned char*)User, STRUCT_SIZE, result);
     digest->hash0 = result[0];
     digest->hash1 = result[1];
     digest->hash2 = result[2];

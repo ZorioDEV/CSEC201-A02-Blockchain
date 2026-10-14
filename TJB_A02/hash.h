@@ -13,3 +13,6 @@ struct Digest {
 unsigned char* SSHA(const unsigned char* str, size_t size);
 int digest_equal(struct Digest digest1, struct Digest digest2);
 void printDigest(struct Digest digest);
+
+#define SSHA2_DIGEST_LEN 5
+void SSHA2(const unsigned char* data, size_t len, unsigned char digest[SSHA2_DIGEST_LEN]);
