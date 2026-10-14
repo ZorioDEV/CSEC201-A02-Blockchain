@@ -1,5 +1,9 @@
 ﻿cl : command line  warning D9025: overriding '/sdl' with '/GS-'
   driver.c
   user.c
+C:\Users\tjbye\OneDrive\Documents\GitHub\CSEC201-A02-Blockchain\TJB_A02\user.c(1,9): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+      C:\Users\tjbye\OneDrive\Documents\GitHub\CSEC201-A02-Blockchain\TJB_A02\user.c(1,9):
+      '_CRT_SECURE_NO_WARNINGS' previously declared on the command line
+  
   Generating Code...
   TJB_A02.vcxproj -> C:\Users\tjbye\OneDrive\Documents\GitHub\CSEC201-A02-Blockchain\TJB_A02\Debug\TJB_A02.exe
