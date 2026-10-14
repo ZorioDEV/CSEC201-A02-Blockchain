@@ -1,0 +1,5 @@
+﻿cl : command line  warning D9025: overriding '/sdl' with '/GS-'
+  driver.c
+  user.c
+  Generating Code...
+  TJB_A02.vcxproj -> C:\Users\tjbye\OneDrive\Documents\GitHub\CSEC201-A02-Blockchain\TJB_A02\Debug\TJB_A02.exe
